@@ -2,7 +2,8 @@
 
 cd ~/CI-CD
 
-git pull
+git fetch origin
+git reset --hard origin/main
 
 pip3 install -r requirements.txt
 
