@@ -1,3 +1,5 @@
 .venv
 __pycache__
-.ideaconfig.env
+.idea
+config.env
+config.env
