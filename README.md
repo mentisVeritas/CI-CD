@@ -58,14 +58,31 @@ http://127.0.0.1:8000
 ## ☁️ Деплой на AWS EC2
 
 На сервере:
+```bash
+git clone https://github.com/mentisVeritas/CI-CD.git
+cd CI-CD
+pip3 install -r requirements.txt
+python3 -m uvicorn main:app --host 0.0.0.0 --port 8000
+```
 
-bash git clone https://github.com/mentisVeritas/CI-CD.git cd CI-CD pip3 install -r requirements.txt  python3 -m uvicorn main:app --host 0.0.0.0 --port 8000 
 
 ---
 
 ## 🔁 deploy.sh
 
-bash #!/bin/bash  cd ~/CI-CD  git pull  pip3 install -r requirements.txt  pkill -f uvicorn || true  nohup python3 -m uvicorn main:app --host 0.0.0.0 --port 8000 > app.log 2>&1 & 
+```bash
+#!/bin/bash
+
+cd ~/CI-CD
+
+git pull
+
+pip3 install -r requirements.txt
+
+pkill -f uvicorn || true
+
+nohup python3 -m uvicorn main:app --host 0.0.0.0 --port 8000 > app.log 2>&1 &
+```
 
 ---
 
