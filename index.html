@@ -2,62 +2,96 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CI/CD Demo</title>
+    <title>CI/CD Live Demo</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background: #0f172a;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
         }
 
-        .card {
-            background: #1e293b;
-            padding: 40px;
-            border-radius: 16px;
+        .container {
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            animation: fadeIn 0.5s ease-in;
+            padding: 50px;
+            border-radius: 20px;
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            animation: fadeIn 0.6s ease;
         }
 
         h1 {
+            font-size: 2.5rem;
             margin-bottom: 10px;
+        }
+
+        .subtitle {
+            opacity: 0.7;
+            margin-bottom: 30px;
         }
 
         .status {
-            color: #22c55e;
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: #22c55e;
+            color: black;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         .version {
+            font-size: 1.2rem;
+            margin-top: 10px;
             opacity: 0.8;
         }
 
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            background: #22c55e;
-            color: black;
-            cursor: pointer;
-            font-weight: bold;
+        .buttons {
+            margin-top: 30px;
         }
 
-        button:hover {
+        button {
+            padding: 12px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .reload {
+            background: #22c55e;
+            color: black;
+        }
+
+        .reload:hover {
             background: #16a34a;
+        }
+
+        .info {
+            background: #334155;
+            color: white;
+        }
+
+        .info:hover {
+            background: #475569;
         }
 
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(15px);
             }
             to {
                 opacity: 1;
@@ -68,12 +102,18 @@
 </head>
 
 <body>
-    <div class="card">
-        <h1>CI/CD Demo</h1>
-        <p class="status">Deployment successful</p>
-        <p class="version">Version: v2</p>
+    <div class="container">
+        <h1>🚀 CI/CD Pipeline</h1>
+        <p class="subtitle">Auto deployment from GitHub → AWS EC2</p>
 
-        <button onclick="location.reload()">Reload</button>
+        <div class="status">Deployment Successful</div>
+
+        <p class="version">Version: v6</p>
+
+        <div class="buttons">
+            <button class="reload" onclick="location.reload()">Reload</button>
+            <button class="info" onclick="alert('CI/CD is working!')">Info</button>
+        </div>
     </div>
 </body>
 </html>
