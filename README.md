@@ -97,7 +97,8 @@ SSH_KEY = содержимое cicd-key.pem
 bash git add . git commit -m "test deploy" git push 
 
 3. Открой:
-http://54.198.201.83:8000
+Live demo: http://<EC2_HOST>:8000
+(EC2_HOST задаётся в GitHub Variables)
 
 → сайт обновится автоматически
 
