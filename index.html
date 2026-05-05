@@ -12,91 +12,127 @@
         body {
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+            background: radial-gradient(circle at top, #1e293b, #020617);
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
         }
 
         .container {
             text-align: center;
-            padding: 50px;
-            border-radius: 20px;
-            background: rgba(30, 41, 59, 0.8);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            animation: fadeIn 0.6s ease;
+            padding: 60px;
+            border-radius: 24px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+            animation: fadeIn 0.7s ease;
+            transform: translateY(0);
+            position: relative;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(34,197,94,0.3), transparent 70%);
+            filter: blur(60px);
+            z-index: -1;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
         .subtitle {
-            opacity: 0.7;
-            margin-bottom: 30px;
+            opacity: 0.6;
+            margin-bottom: 35px;
+            font-size: 1rem;
         }
 
         .status {
             display: inline-block;
-            padding: 8px 16px;
+            padding: 10px 18px;
             border-radius: 999px;
-            background: #22c55e;
-            color: black;
+            background: linear-gradient(135deg, #22c55e, #4ade80);
+            color: #022c22;
             font-weight: bold;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(34,197,94,0.5);
+            animation: pulse 2s infinite;
         }
 
         .version {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-top: 10px;
-            opacity: 0.8;
+            opacity: 0.85;
         }
 
         .buttons {
-            margin-top: 30px;
+            margin-top: 35px;
         }
 
         button {
-            padding: 12px 20px;
-            margin: 5px;
+            padding: 12px 22px;
+            margin: 6px;
             border: none;
-            border-radius: 10px;
-            font-weight: bold;
+            border-radius: 12px;
+            font-weight: 600;
             cursor: pointer;
-            transition: 0.2s;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
         }
 
         .reload {
-            background: #22c55e;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
             color: black;
         }
 
         .reload:hover {
-            background: #16a34a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(34,197,94,0.4);
         }
 
         .info {
-            background: #334155;
+            background: rgba(71, 85, 105, 0.6);
             color: white;
         }
 
         .info:hover {
-            background: #475569;
+            transform: translateY(-2px);
+            background: rgba(100, 116, 139, 0.7);
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 0.75rem;
+            opacity: 0.4;
         }
 
         @keyframes fadeIn {
-            from {
+            0% {
                 opacity: 0;
-                transform: translateY(15px);
+                transform: translateY(40px) scale(0.95);
             }
-            to {
+            60% {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(-5px) scale(1.02);
             }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 10px rgba(34,197,94,0.4); }
+            50% { box-shadow: 0 0 25px rgba(34,197,94,0.8); }
+            100% { box-shadow: 0 0 10px rgba(34,197,94,0.4); }
         }
     </style>
 </head>
@@ -104,15 +140,19 @@
 <body>
     <div class="container">
         <h1>🚀 CI/CD Pipeline</h1>
-        <p class="subtitle">Auto deployment from GitHub → AWS EC2</p>
+        <p class="subtitle">GitHub Actions → AWS EC2 Auto Deploy</p>
 
         <div class="status">Deployment Successful</div>
 
-        <p class="version">Version: v9</p>
+        <p class="version">Version: v11</p>
 
         <div class="buttons">
             <button class="reload" onclick="location.reload()">Reload</button>
             <button class="info" onclick="alert('CI/CD is working!')">Info</button>
+        </div>
+
+        <div class="footer">
+            Live auto-deployment demo
         </div>
     </div>
 </body>
